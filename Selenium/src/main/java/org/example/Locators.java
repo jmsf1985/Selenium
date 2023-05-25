@@ -8,7 +8,7 @@ import java.time.Duration;
 
 public class Locators {
     public static void main(String[] args) throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver","/Users/kanem/IdeaProjects/Selenium/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","/github/Selenium/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://rahulshettyacademy.com/locatorspractice/");
@@ -25,5 +25,11 @@ public class Locators {
         driver.findElement(By.xpath("//form/input[3]")).sendKeys("407-444-4444");
         driver.findElement(By.cssSelector(".reset-pwd-btn")).click();
         System.out.println(driver.findElement(By.cssSelector("form p")).getText());
+        driver.findElement(By.xpath("//div[contains(@class,\"pwd\")]/button[1]")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.cssSelector("#inputUsername")).sendKeys("Jose S");
+        driver.findElement(By.cssSelector("input[type*='pass']")).sendKeys("rahulshettyacademy");
+        driver.findElement(By.id("chkboxOne")).click();
+        driver.findElement(By.xpath("//button[contains(@class,'submit')]")).click();
     }
 }
